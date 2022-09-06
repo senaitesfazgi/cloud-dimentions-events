@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+	
+  /* Step 3. Accept user input */
+
+
+};	]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>registration_form</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Registration Form</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+	/* Step 1. Load initial data from the server */
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+
+	if(!input) {
+		data.events = [];
+		var grEvent = new GlideRecordSecure('x_snc_cloudevents_events');
+		grEvent.addActiveQuery();
+		grEvent.query();
+
+		while (grEvent.next()) {
+			data.events.push({
+				'name': grEvent.getDisplayValue('name'),
+				'sys_id': grEvent.getUniqueValue()
+			});
+		}	
+	}
+
+
+
+	/* Step 4. Process user input */
+
+	if(input) {
+
+	}
+
+})();	]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-06 17:04:58</sys_created_on>
+        <sys_id>dfd8749d2f3111102ed0802df699b696</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>Registration Form</sys_name>
+        <sys_package display_value="Cloud Dimensions Events" source="x_snc_cloudevents">77108b70610813007f44e59882b97a67</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Cloud Dimensions Events">77108b70610813007f44e59882b97a67</sys_scope>
+        <sys_update_name>sp_widget_dfd8749d2f3111102ed0802df699b696</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-06 17:35:29</sys_updated_on>
+        <template><![CDATA[<form name="registration" class="form-horizontal cloud-widgets">
+
+  <!-- Step 2. Display initial data from the server -->
+  <!--Registration Form Widget's HTML Template -->
+  <!-- Form Name -->
+  <legend>Register for an Event</legend>
+
+  <!-- Select an Event -->
+  <div class="form-group">
+    <div class="col-md-12">
+      <select id="select_event" name="select_event" class="form-control"
+              ng-model="c.select_event"
+              ng-options="event.name for event in c.data.events">
+        <option value="">Select an Event</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- First name -->
+  <div class="form-group">
+    <div class="col-md-12">
+      <input id="first_name" name="first_name" type="text" placeholder="First name" class="form-control input-md"
+             ng-model="first_name">
+    </div>
+  </div>
+
+  <!-- Last name -->
+  <div class="form-group">
+    <div class="col-md-12">
+      <input id="last_name" name="last_name" type="text" placeholder="Last name" class="form-control input-md"
+             ng-model="last_name">
+    </div>
+  </div>
+
+  <!-- Company -->
+  <div class="form-group">
+    <div class="col-md-12">
+      <input id="company" name="company" type="text" placeholder="Company" class="form-control input-md"
+             ng-model="company">
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div class="form-group">
+    <div class="col-md-12">
+      <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md"
+             ng-model="email">
+    </div>
+  </div>
+
+  <!-- Comments -->
+  <div class="form-group">
+    <div class="col-md-12">                     
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comments"
+                ng-model="comments"></textarea
+        >
+    </div>
+  </div>
+
+  <!-- Button -->
+  <div class="form-group">
+    <div class="col-md-4">
+      <button id="button" name="submit" class="btn btn-primary">Register Now</button>
+    </div>
+  </div>	
+  <!--<pre>{{c.data.events | json}}</pre>-->
+
+  <!-- Step 5. Display customized content based on user input -->
+
+
+
+</form>
+]]></template>
+    </sp_widget>
+</record_update>

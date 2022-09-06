@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page">
+    <sp_page action="DELETE">
+        <category>custom</category>
+        <css/>
+        <draft>false</draft>
+        <dynamic_title_structure/>
+        <id>cloud_events_home</id>
+        <internal>false</internal>
+        <omit_watcher>false</omit_watcher>
+        <public>false</public>
+        <roles/>
+        <seo_script/>
+        <short_description/>
+        <sys_class_name>sp_page</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-06 18:32:30</sys_created_on>
+        <sys_id>b1ec89dd2f7111102ed0802df699b6e1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>cloud_events_home</sys_name>
+        <sys_package display_value="Cloud Dimensions Events" source="x_snc_cloudevents">77108b70610813007f44e59882b97a67</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Cloud Dimensions Events">77108b70610813007f44e59882b97a67</sys_scope>
+        <sys_update_name>sp_page_b1ec89dd2f7111102ed0802df699b6e1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-06 18:32:30</sys_updated_on>
+        <title>Cloud Events Home</title>
+        <use_seo_script>false</use_seo_script>
+    </sp_page>
+    <sys_translated_text action="DELETE" query="documentkey=b1ec89dd2f7111102ed0802df699b6e1"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Cloud Dimensions Events">77108b70610813007f44e59882b97a67</application>
+        <file_path/>
+        <instance_id>d904e053db429c18566750b6f49619bc</instance_id>
+        <instance_name>tac02494</instance_name>
+        <name>sp_page_b1ec89dd2f7111102ed0802df699b6e1</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_page"><sp_page action="INSERT_OR_UPDATE"><category>custom</category><css/><draft>false</draft><dynamic_title_structure/><id>cloud_events_home</id><internal>false</internal><omit_watcher>false</omit_watcher><public>false</public><roles/><seo_script/><short_description/><sys_class_name>sp_page</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2022-09-06 18:32:30</sys_created_on><sys_id>b1ec89dd2f7111102ed0802df699b6e1</sys_id><sys_mod_count>0</sys_mod_count><sys_name>cloud_events_home</sys_name><sys_package display_value="Cloud Dimensions Events" source="x_snc_cloudevents">77108b70610813007f44e59882b97a67</sys_package><sys_policy/><sys_scope display_value="Cloud Dimensions Events">77108b70610813007f44e59882b97a67</sys_scope><sys_update_name>sp_page_b1ec89dd2f7111102ed0802df699b6e1</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2022-09-06 18:32:30</sys_updated_on><title>Cloud Events Home</title><use_seo_script>false</use_seo_script></sp_page><sys_translated_text action="delete_multiple" query="documentkey=b1ec89dd2f7111102ed0802df699b6e1"/></record_update>]]></payload>
+        <payload_hash>1099327275</payload_hash>
+        <record_name>cloud_events_home</record_name>
+        <reverted_from/>
+        <source>e768f4152f3111102ed0802df699b601</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-06 18:32:30</sys_created_on>
+        <sys_id>75ec89dd2f7111102ed0802df699b6e4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1831413444d0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-06 18:32:30</sys_updated_on>
+        <type>Page</type>
+        <update_guid>bdec89dd95711110e06ae6bb7e34d0e3</update_guid>
+        <update_guid_history>bdec89dd95711110e06ae6bb7e34d0e3:1099327275</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="cloud_events_home">905d41112fb111102ed0802df699b69b</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-09-06 18:34:19</sys_created_on>
+        <sys_db_object display_value="" name="sp_page">sp_page</sys_db_object>
+        <sys_id>401e9d51557d4f879e7e65319e780829</sys_id>
+        <sys_metadata>b1ec89dd2f7111102ed0802df699b6e1</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>cloud_events_home</sys_name>
+        <sys_package display_value="Cloud Dimensions Events" source="x_snc_cloudevents">77108b70610813007f44e59882b97a67</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Cloud Dimensions Events">77108b70610813007f44e59882b97a67</sys_scope>
+        <sys_scope_delete display_value="">138146ecda3441d3867e598472462431</sys_scope_delete>
+        <sys_update_name>sp_page_b1ec89dd2f7111102ed0802df699b6e1</sys_update_name>
+        <sys_update_version display_value="sp_page_b1ec89dd2f7111102ed0802df699b6e1">75ec89dd2f7111102ed0802df699b6e4</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-09-06 18:34:19</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
