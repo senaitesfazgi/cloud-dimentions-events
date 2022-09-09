@@ -6,6 +6,7 @@
   var c = this;
 	
   /* Step 3. Accept user input */
+	
 	//Pass in the isValid parameter from the HTML Template
 	c.submitForm = function(isValid) {
 
@@ -84,8 +85,8 @@
 	/* Step 4. Process user input */
 
 	if(input) {
-	//Insert the new registration record
-	if(validateRegistration(input.email)){
+		//Insert the new registration record
+		if(validateRegistration(input.email)){
 			var grNewRegistration = new GlideRecordSecure('x_snc_cloudevents_registrations');
 			grNewRegistration.initialize();
 			grNewRegistration.setValue('first_name', input.first_name);
@@ -102,16 +103,16 @@
 			}
 
 			var userRegSysId = grNewRegistration.insert();
-
+			
 			//if the record is created successfully, send the success
 			// message to the client, else send the error message
 			if (!gs.nil(userRegSysId)) {
 				data.status = "success";
-				data.message = "Your registration has been successfully submitted.";
+				data.message = "Your registration has been successfully submitted." + userRegSysId;
 			} else {
 				data.status = "error";
 			}
-	}
+		}
 	}
 	function validateRegistration(email) {
 		var isNoDuplicate = true;
@@ -140,14 +141,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-06 17:04:58</sys_created_on>
         <sys_id>dfd8749d2f3111102ed0802df699b696</sys_id>
-        <sys_mod_count>21</sys_mod_count>
+        <sys_mod_count>39</sys_mod_count>
         <sys_name>Registration Form</sys_name>
         <sys_package display_value="Cloud Dimensions Events" source="x_snc_cloudevents">77108b70610813007f44e59882b97a67</sys_package>
         <sys_policy/>
         <sys_scope display_value="Cloud Dimensions Events">77108b70610813007f44e59882b97a67</sys_scope>
         <sys_update_name>sp_widget_dfd8749d2f3111102ed0802df699b696</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-07 19:19:09</sys_updated_on>
+        <sys_updated_on>2022-09-09 17:54:15</sys_updated_on>
         <template><![CDATA[<form name="registration" class="form-horizontal cloud-widgets" novalidate
       ng-submit="c.submitForm(registration.$valid)">
 
@@ -163,11 +164,11 @@
       <select id="select_event" name="select_event" class="form-control"
               ng-model="c.select_event"
               ng-options="event.name for event in c.data.events"
-              ng-required="true">
-        <p class="help-block"
-           ng-show="registration.select_event.$invalid && c.submitted">Field is required.</p>	
+              ng-required="true">	
         <option value="">Select an Event</option>
       </select>
+      <p class="help-block"
+           ng-show="registration.select_event.$invalid && c.submitted">Field is required.</p>
     </div>
   </div>
 
