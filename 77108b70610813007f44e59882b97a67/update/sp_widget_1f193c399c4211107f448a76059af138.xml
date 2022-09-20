@@ -15,6 +15,18 @@
 		//Send the data object to the server script
 		c.server.update();
 	}	
+	//Sort Functionality
+	c.sortOrder = false;
+	c.changeSortCol = function(key){
+
+		/* If the user is selecting the same column, reverse the sort order, else set the order to false which forces a new sort in ascending order */
+		if(key  ==  c.orderCol)
+			c.sortOrder = !c.sortOrder;
+		else
+			c.sortOrder = false;
+
+		c.orderCol = key;
+	}	
 
 };	]]></client_script>
         <controller_as>c</controller_as>
@@ -98,14 +110,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-20 16:38:42</sys_created_on>
         <sys_id>1f193c399c4211107f448a76059af138</sys_id>
-        <sys_mod_count>42</sys_mod_count>
+        <sys_mod_count>49</sys_mod_count>
         <sys_name>Table Summary</sys_name>
         <sys_package display_value="Cloud Dimensions Events" source="x_snc_cloudevents">77108b70610813007f44e59882b97a67</sys_package>
         <sys_policy/>
         <sys_scope display_value="Cloud Dimensions Events">77108b70610813007f44e59882b97a67</sys_scope>
         <sys_update_name>sp_widget_1f193c399c4211107f448a76059af138</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-20 18:34:50</sys_updated_on>
+        <sys_updated_on>2022-09-20 19:19:49</sys_updated_on>
         <template><![CDATA[<form>
   
   <!-- Step 2. Display initial data from the server -->
@@ -129,13 +141,22 @@
          ng-if="c.data.records">
     <thead>
       <tr>
-        <th ng-repeat="label in c.data.labels">{{label.value}}</th>
+        <th ng-repeat="label in c.data.labels"
+            ng-click="c.changeSortCol(label.key)">{{label.value}}
+        <!-- Only show and style the selected column -->
+          <span ng-show="c.orderCol==label.key">
+            <span class="fa fa-sort-up"
+                  ng-show="!c.sortOrder"></span>
+            <span class="fa fa-sort-down"
+                  ng-show="c.sortOrder"></span>
+          </span>	
+        </th>
       </tr>
     </thead>
 
-    <tbody ng-repeat="record in c.data.records">
+    <tbody ng-repeat="record in c.data.records |orderBy: c.orderCol : c.sortOrder">
       <tr>
-        <td ng-repeat="label in c.data.labels">{{record[label.key] }}</td>
+        <td ng-repeat="label in c.data.labels">{{record[label.key]}}</td>
       </tr>
     </tbody>
   </table>	
