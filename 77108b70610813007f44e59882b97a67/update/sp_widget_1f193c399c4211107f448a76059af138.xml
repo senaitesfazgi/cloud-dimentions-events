@@ -6,7 +6,15 @@
   var c = this;
 	
   /* Step 3. Accept user input */
+	
+	c.selectAg = function(record) {
 
+		//Set a property on the data object to identify the selected object
+		c.data.selectedAg = record.agValue;
+
+		//Send the data object to the server script
+		c.server.update();
+	}	
 
 };	]]></client_script>
         <controller_as>c</controller_as>
@@ -35,6 +43,7 @@
 		data.summary = [];
 		data.table = 'x_snc_cloudevents_registrations';
 		data.groupBy = 'event';
+		data.fields = 'last_name,first_name,company,email,event,state';	
 
 		var ga = new GlideAggregate(data.table);
 		ga.setGroup(true);
@@ -56,7 +65,31 @@
 	/* Step 4. Process user input */
 	
 	if(input) {
-		
+		//console.log("Selected ag (from server): " + input.selectedAg);
+		data.records=[];
+
+		var gr = new GlideRecordSecure(input.table);
+		gr.addQuery(input.groupBy, input.selectedAg);
+		gr.query();
+
+		//use an array to order columns
+		data.labels = [];
+		var labels = $sp.getFieldsObject(gr, input.fields);
+
+		for (var label in labels) {
+			data.labels.push({"key":label,
+												"type": labels[label].type,
+												"value":labels[label].label});
+		}
+
+		while(gr.next()){
+			var o = {};
+
+			//use $sp utility methods rather than manually creating record objects
+			$sp.getRecordDisplayValues(o,gr,input.fields);
+			$sp.getRecordValues(o,gr,'sys_id');
+			data.records.push(o);
+		}	
 	}
 
 })();	]]></script>
@@ -65,14 +98,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-20 16:38:42</sys_created_on>
         <sys_id>1f193c399c4211107f448a76059af138</sys_id>
-        <sys_mod_count>13</sys_mod_count>
+        <sys_mod_count>42</sys_mod_count>
         <sys_name>Table Summary</sys_name>
         <sys_package display_value="Cloud Dimensions Events" source="x_snc_cloudevents">77108b70610813007f44e59882b97a67</sys_package>
         <sys_policy/>
         <sys_scope display_value="Cloud Dimensions Events">77108b70610813007f44e59882b97a67</sys_scope>
         <sys_update_name>sp_widget_1f193c399c4211107f448a76059af138</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-20 16:50:00</sys_updated_on>
+        <sys_updated_on>2022-09-20 18:34:50</sys_updated_on>
         <template><![CDATA[<form>
   
   <!-- Step 2. Display initial data from the server -->
@@ -84,16 +117,30 @@
     <!-- List group -->
     <ul class="list-group">
       <li class="list-group-item"
-          ng-repeat="s in c.data.summary">{{s.agName}}
+          ng-repeat="s in c.data.summary"
+					ng-click="c.selectAg(s)">{{s.agName}}
         <span class="badge">{{s.agCount}}</span>
       </li>
     </ul>
   </div>
 
   <!-- Step 5. Display customized content based on user input -->
+  <table class="cloud-widgets"
+         ng-if="c.data.records">
+    <thead>
+      <tr>
+        <th ng-repeat="label in c.data.labels">{{label.value}}</th>
+      </tr>
+    </thead>
+
+    <tbody ng-repeat="record in c.data.records">
+      <tr>
+        <td ng-repeat="label in c.data.labels">{{record[label.key] }}</td>
+      </tr>
+    </tbody>
+  </table>	
   
-  
-  
+  <!-- <pre>{{c.data.records | json}} </pre>-->
 </form>
 	]]></template>
     </sp_widget>
