@@ -141,14 +141,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2022-09-06 17:04:58</sys_created_on>
         <sys_id>dfd8749d2f3111102ed0802df699b696</sys_id>
-        <sys_mod_count>39</sys_mod_count>
+        <sys_mod_count>40</sys_mod_count>
         <sys_name>Registration Form</sys_name>
         <sys_package display_value="Cloud Dimensions Events" source="x_snc_cloudevents">77108b70610813007f44e59882b97a67</sys_package>
         <sys_policy/>
         <sys_scope display_value="Cloud Dimensions Events">77108b70610813007f44e59882b97a67</sys_scope>
         <sys_update_name>sp_widget_dfd8749d2f3111102ed0802df699b696</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2022-09-09 17:54:15</sys_updated_on>
+        <sys_updated_on>2022-09-20 15:56:11</sys_updated_on>
         <template><![CDATA[<form name="registration" class="form-horizontal cloud-widgets" novalidate
       ng-submit="c.submitForm(registration.$valid)">
 
@@ -177,7 +177,7 @@
        ng-class="{ 'has-error' : registration.first_name.$invalid && c.submitted }">
     <div class="col-md-12">
       <input id="first_name" name="first_name" type="text" placeholder="First name" class="form-control input-md"
-             ng-model="first_name"
+             ng-model="c.first_name"
              ng-required="true">
       <p class="help-block"
          ng-show="registration.first_name.$invalid && c.submitted">Field is required.</p>	
@@ -189,7 +189,7 @@
        ng-class="{ 'has-error' : registration.last_name.$invalid && c.submitted }">
     <div class="col-md-12">
       <input id="last_name" name="last_name" type="text" placeholder="Last name" class="form-control input-md"
-             ng-model="last_name"
+             ng-model="c.last_name"
              ng-required="true">
       <p class="help-block"
          ng-show="registration.last_name.$invalid && c.submitted">Field is required.</p>	
@@ -201,7 +201,7 @@
        ng-class="{ 'has-error' : registration.company.$invalid && c.submitted }">
     <div class="col-md-12">
       <input id="company" name="company" type="text" placeholder="Company" class="form-control input-md"
-             ng-model="company"
+             ng-model="c.company"
              ng-required="true">
       <p class="help-block"
          ng-show="registration.company.$invalid && c.submitted">Field is required.</p>	
@@ -213,7 +213,7 @@
        ng-class="{ 'has-error' : registration.email.$invalid && c.submitted }">
     <div class="col-md-12">
       <input id="email" name="email" type="text" placeholder="Email" class="form-control input-md"
-             ng-model="email"
+             ng-model="c.email"
              ng-required="true">
       <p class="help-block"
          ng-show="registration.email.$invalid && c.submitted">Field is required.</p>	
@@ -224,7 +224,7 @@
   <div class="form-group">
     <div class="col-md-12">                     
       <textarea class="form-control" id="comments" name="comments" placeholder="Comments"
-                ng-model="comments"></textarea
+                ng-model="c.comments"></textarea
         >
     </div>
   </div>
